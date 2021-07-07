@@ -1,0 +1,14 @@
+{
+  "canisters": {
+    "www": {
+      "frontend": {
+        "entrypoint": "dist/www/index.html"
+      },
+	"source": [
+        "dist/www"
+      ],
+      "type": "assets"
+    }
+  },
+  "dfx": "0.7.2"
+}
