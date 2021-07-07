@@ -1,27 +1,66 @@
 # HelloAngularMotoko
+## Introduction
+This example demonstrates an Angular application running on the Internet Computer.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.0.
+## Prerequisites
 
-## Development server
+Verify the following before running this demo:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+*  You have downloaded and installed [Node.js](https://nodejs.org).
 
-## Code scaffolding
+*  You have downloaded and installed the [DFINITY Canister
+   SDK](https://sdk.dfinity.org).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+*  You have stopped any Internet Computer or other network process that would
+   create a port conflict on 8000.
 
-## Build
+* Install angular cli Globabally:
+    ```
+    npm install -g @angular/cli
+    ```
+## Demo
+1. Install your front-end.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+   ```text
+   npm install
+   ```
 
-## Running unit tests
+1. Build your front-end.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   ```text
+   ng build
+   ```
 
-## Running end-to-end tests
+1. Start a local internet computer.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   ```text
+   dfx start
+   ```
 
-## Further help
+1. Open a new terminal window.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Reserve an identifier for your canister.
+
+   ```text
+   dfx canister create --all
+   ```
+
+1. Build your canister.
+
+   ```text
+   dfx build
+   ```
+
+1. Deploy your canister.
+
+   ```text
+   dfx canister install --all
+   ```
+
+1. Take note of the URL at which the application is accessible.
+
+   ```text
+   echo "http://localhost:8000/?canisterId=$(dfx canister id www)"
+   ```
+
+1. Open the aforementioned URL in your web browser.
