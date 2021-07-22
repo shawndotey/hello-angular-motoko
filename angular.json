@@ -18,8 +18,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
+            "customWebpackConfig": {
+              "path": "custom-webpack.config.js"
+            },
             "outputPath": "dist/www",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -102,6 +105,37 @@
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        }
+      }
+    },
+    "ic-connection": {
+      "projectType": "library",
+      "root": "projects/ic-connection",
+      "sourceRoot": "projects/ic-connection/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ic-connection/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ic-connection/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ic-connection/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ic-connection/src/test.ts",
+            "tsConfig": "projects/ic-connection/tsconfig.spec.json",
+            "karmaConfig": "projects/ic-connection/karma.conf.js"
           }
         }
       }

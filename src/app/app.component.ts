@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-//import { hello } from 'src/declarations/hello';
-const hello = require('src/declarations/hello/index.js');
+import { Component } from "@angular/core";
+import { IcConnectionService } from "projects/ic-connection/src/public-api";
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,10 +8,9 @@ const hello = require('src/declarations/hello/index.js');
 })
 export class AppComponent {
   title = 'hello-angular-motoko';
-  constructor(){
-    hello.greet().then((result:any)=>{
+  constructor(private connection: IcConnectionService){
+    connection.connection.greet('Shawn').then((result:any)=>{
       console.log('result', result);
     })
-    
   }
 }
