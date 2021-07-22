@@ -34,10 +34,6 @@ initCanisterIds();
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 const asset_entry = path.join(
-  "src",
-  "hello_assets",
-  "src",
-  "index.html"
 );
 
 module.exports = {
@@ -67,7 +63,7 @@ module.exports = {
     filename: "index.js",
     path: path.join(__dirname, "dist", "hello_assets"),
   },
-
+  stats: 'verbose',
   // Depending in the language or framework you are using for
   // front-end development, add module loaders to the default
   // webpack configuration. For example, if you are using React

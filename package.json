@@ -3,15 +3,15 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "build": "ng build",
+    "build": "ng build",    
+    "build-ng": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "--here--":"build and start",
     "prebuild": "npm run copy:types",
     "start": "webpack serve --mode development --env development",
+    "start-ng": "ng serve",
     "prestart": "npm run copy:types",
     "copy:types": "rsync -avr .dfx/$(echo ${DFX_NETWORK:-'**'})/canisters/** --exclude='assets/' --exclude='idl/' --exclude='*.wasm' --delete src/declarations"
-
   },
   "private": true,
   "dependencies": {
@@ -40,7 +40,6 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "typescript": "~4.3.2",
-
     "@dfinity/agent": "0.9.2",
     "@dfinity/candid": "0.9.2",
     "@dfinity/principal": "0.9.2",

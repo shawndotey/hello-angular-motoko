@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
-import { Actor, HttpAgent } from '@dfinity/agent';
-import { idlFactory as hello_idl, canisterId as hello_id } from './dfx-generated/hello/hello';
-
-const agent = new HttpAgent();
-const canister = Actor.createActor(hello_idl, { agent, canisterId: hello_id });
+//import { hello } from 'src/declarations/hello';
+const hello = require('src/declarations/hello/index.js');
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,8 +9,9 @@ const canister = Actor.createActor(hello_idl, { agent, canisterId: hello_id });
 export class AppComponent {
   title = 'hello-angular-motoko';
   constructor(){
-    canister.hello().then((result)=>{
+    hello.greet().then((result:any)=>{
       console.log('result', result);
     })
+    
   }
 }

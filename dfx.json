@@ -5,6 +5,9 @@
       "type": "motoko"
     },
     "www": {
+      "dependencies": [
+        "hello"
+      ],
       "frontend": {
         "entrypoint": "dist/www/index.html"
       },
@@ -14,12 +17,7 @@
       "type": "assets"
     }
   },
-  "defaults": {
-    "build": {
-      "args": "",
-      "packtool": ""
-    }
-  },
+  
   "dfx": "0.7.7",
   "networks": {
     "local": {
