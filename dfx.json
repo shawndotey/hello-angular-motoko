@@ -1,14 +1,31 @@
 {
   "canisters": {
+    "hello": {
+      "main": "src/hello/main.mo",
+      "type": "motoko"
+    },
     "www": {
       "frontend": {
         "entrypoint": "dist/www/index.html"
       },
-	"source": [
+      "source": [
         "dist/www"
       ],
       "type": "assets"
     }
   },
-  "dfx": "0.7.2"
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "dfx": "0.7.7",
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    }
+  },
+  "version": 1
 }
