@@ -46,18 +46,18 @@ module.exports = {
       'STABLE_FEATURE': JSON.stringify(true),
       'EXPERIMENTAL_FEATURE': JSON.stringify(false)
     }),
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, asset_entry),
-      cache: false
-    }),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: path.join(__dirname, "src", "hello_assets", "assets"),
-          to: path.join(__dirname, "dist", "hello_assets"),
-        },
-      ],
-    }),
+    // new HtmlWebpackPlugin({
+    //   template: path.join(__dirname, asset_entry),
+    //   cache: false
+    // }),
+    // new CopyPlugin({
+    //   patterns: [
+    //     {
+    //       from: path.join(__dirname, "src", "hello_assets", "assets"),
+    //       to: path.join(__dirname, "dist", "hello_assets"),
+    //     },
+    //   ],
+    // }),
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
       HELLO_CANISTER_ID: canisters["hello"]

@@ -9,7 +9,7 @@ import { IcConnectionService } from "projects/ic-connection/src/public-api";
 export class AppComponent {
   title = 'hello-angular-motoko';
   constructor(private connection: IcConnectionService){
-    connection.hello.greet('Shawn').then((result:any)=>{
+    connection.hello.greet().then((result:any)=>{
       console.log('result', result);
     })
   }

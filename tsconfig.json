@@ -2,6 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "allowJs": true,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
@@ -9,8 +10,6 @@
     "noImplicitReturns": true,
     "paths": {
       "ic-connection": [
-        "dist/ic-connection/ic-connection",
-        "dist/ic-connection",
         "dist/ic-connection/ic-connection",
         "dist/ic-connection"
       ]
