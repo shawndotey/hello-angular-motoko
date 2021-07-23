@@ -4,6 +4,6 @@ import Text "mo:base/Text";
 
 actor {
   public query func greet() : async Text {
-    return "hello from IC";
+    return "hello from IC main";
   };
 };

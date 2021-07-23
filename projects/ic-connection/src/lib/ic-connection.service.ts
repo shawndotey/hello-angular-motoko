@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-require('../../connection/dist/connection_assets');
+require('../../../../src/hello_assets/src');
 @Injectable({
   providedIn: 'root'
 })
 export class IcConnectionService {
-  public connection:any;
+  public hello:any;
   constructor() {
     const doc = document as any;
-    this.connection = doc['IC_CONNECTION_SERVICE'].connection;
+    this.hello = doc['IC_CONNECTION_SERVICE'].hello;
   }
 }

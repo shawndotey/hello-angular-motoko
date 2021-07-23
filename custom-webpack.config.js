@@ -1,5 +1,8 @@
 const path = require("path");
 const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 let localCanisters, prodCanisters, canisters;
 
@@ -8,7 +11,6 @@ try {
 } catch (error) {
   console.log("No local canister_ids.json found. Continuing production");
 }
-console.log('process.env', process.env)
 function initCanisterIds() {
   try {
     prodCanisters = require(path.resolve("canister_ids.json"));
@@ -43,6 +45,18 @@ module.exports = {
     new webpack.DefinePlugin({
       'STABLE_FEATURE': JSON.stringify(true),
       'EXPERIMENTAL_FEATURE': JSON.stringify(false)
+    }),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, asset_entry),
+      cache: false
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.join(__dirname, "src", "hello_assets", "assets"),
+          to: path.join(__dirname, "dist", "hello_assets"),
+        },
+      ],
     }),
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
