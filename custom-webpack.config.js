@@ -37,7 +37,7 @@ const asset_entry = path.join(
   "src",
   "hello_assets",
   "src",
-  "index.html"
+  "other.html"
 );
 
 module.exports = {
@@ -59,10 +59,10 @@ module.exports = {
       'STABLE_FEATURE': JSON.stringify(true),
       'EXPERIMENTAL_FEATURE': JSON.stringify(false)
     }),
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, asset_entry),
-      cache: false
-    }),
+    // new HtmlWebpackPlugin({
+    //   template: path.join(__dirname, asset_entry),
+    //   cache: false
+    // }),
     new CopyPlugin({
       patterns: [
         {
