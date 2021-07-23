@@ -11,7 +11,7 @@ try {
 } catch (error) {
   console.log("No local canister_ids.json found. Continuing production");
 }
-
+console.log('process.env', process.env)
 function initCanisterIds() {
   try {
     prodCanisters = require(path.resolve("canister_ids.json"));
@@ -55,6 +55,10 @@ module.exports = {
   //  ]
   // },
   plugins: [
+    new webpack.DefinePlugin({
+      'STABLE_FEATURE': JSON.stringify(true),
+      'EXPERIMENTAL_FEATURE': JSON.stringify(false)
+    }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, asset_entry),
       cache: false
