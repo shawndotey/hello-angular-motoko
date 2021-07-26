@@ -13,7 +13,7 @@ export class AppComponent {
     this.go();
   }
   public async go(){
-    const value  = await ic_hello.test();
+    const value  = await ic_hello.greet('Angular');
     console.log('value', value)
   }
 }

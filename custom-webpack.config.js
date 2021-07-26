@@ -1,17 +1,16 @@
 const path = require("path");
 const webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
 
 let localCanisters, prodCanisters, canisters;
 
-try {
-  localCanisters = require(path.resolve(".dfx", "local", "canister_ids.json"));
-} catch (error) {
-  console.log("No local canister_ids.json found. Continuing production");
-}
 function initCanisterIds() {
+  
+  try {
+    localCanisters = require(path.resolve(".dfx", "local", "canister_ids.json"));
+  } catch (error) {
+    console.log("No local canister_ids.json found. Continuing production");
+  }
+
   try {
     prodCanisters = require(path.resolve("canister_ids.json"));
   } catch (error) {
@@ -32,34 +31,11 @@ function initCanisterIds() {
 initCanisterIds();
 
 const isDevelopment = process.env.NODE_ENV !== "production";
-const asset_entry = path.join(
-  "src",
-  "hello_assets",
-  "src",
-  "other.html"
-);
+
 
 module.exports = {
-  node: { global: true}, // Fix: "Uncaught ReferenceError: global is not defined", and "Can't resolve 'fs'".
-  
+  node: { global: true}, // Fix: "Uncaught ReferenceError: global is not defined".
   plugins: [
-    // new webpack.DefinePlugin({
-    //   'STABLE_FEATURE': JSON.stringify(true),
-    //   'EXPERIMENTAL_FEATURE': JSON.stringify(false)
-    // }),
-    // new HtmlWebpackPlugin({
-    //   template: path.join(__dirname, asset_entry),
-    //   cache: false,
-    //   filename: 'other.html'
-    // }),
-    // new CopyPlugin({
-    //   patterns: [
-    //     {
-    //       from: path.join(__dirname, "src", "hello_assets", "assets"),
-    //       to: path.join(__dirname, "dist", "hello_assets"),
-    //     },
-    //   ],
-    // }),
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
       HELLO_CANISTER_ID: canisters["hello"]
@@ -81,7 +57,7 @@ module.exports = {
       },
     },
     hot: true,
-    contentBase: path.resolve(__dirname, "./src/hello_assets"),
-    watchContentBase: true
+    //contentBase: path.resolve(__dirname, "./src/hello_assets"),
+    //watchContentBase: true
   },
 };

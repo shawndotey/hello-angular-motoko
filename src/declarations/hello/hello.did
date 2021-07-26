@@ -1,4 +1,4 @@
 service : {
-  greet: () -> (text) query;
+  greet: (text) -> (text) query;
   test: () -> (text) query;
 }
