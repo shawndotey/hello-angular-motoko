@@ -1,31 +1,29 @@
 # hello-angular-motoko
 This is an example of locally implementing the Internet Computer's motoko project along side Angular
------
+
+-----------
 ## Getting started
 
 - [Install DFX](https://sdk.dfinity.org/docs/quickstart/local-quickstart.html). Please keep in mind the dfx cli currently only runs on Linux and Apple based PCs.
 - [Install Angular](https://angular.io/guide/setup-local)
-- install npm packages from the project root:
+- Install npm packages from the project root:
 
-```bash
-npm install
-```
+    ```bash
+    npm install
+    ```
 
 
-If you want to run this project locally, you can use the following commands:
+### If you want to run this project locally, you can use the following command:
 
 ```bash
 # Starts the replica, running in the background
-dfx start --background
-
 # Deploys your canisters to the replica and generates your candid interface
-# serves Angular locally with reloading
+# Serves Angular locally with reloading
 npm run start
 ```
-- Once the job completes, your application will be available at `http://localhost:4200`.
+Once the job completes, your application will be available at `http://localhost:4200`.
 
-
-- The project will recompile on both the Angular and motoko side if you make any changes while in development mode
+If you make any changes while in development mode, the project will recompile on both the Angular and motoko side.
 
 -----
 
