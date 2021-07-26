@@ -1,6 +1,11 @@
 {
   "name": "hello-angular-motoko",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "author": {
+    "name": "Shawn Dotey",
+    "email": "shawndotey@protonmail.com",
+    "url": "https://github.com/shawndotey/hello-angular-motoko"
+  },
   "scripts": {
     "ng": "ng",
     "build": "",

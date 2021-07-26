@@ -1,10 +1,35 @@
-# hello
+# hello-angular-motoko
+This is an example of locally implementing the Internet Computer's motoko project along side Angular
+-----
+## Getting started
 
-Welcome to your new hello project and to the internet computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
+- [Install DFX](https://sdk.dfinity.org/docs/quickstart/local-quickstart.html). Please keep in mind the dfx cli currently only runs on Linux and Apple based PCs.
+- [Install Angular](https://angular.io/guide/setup-local)
+- install npm packages from the project root:
 
-To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
+```bash
+npm install
+```
 
-To learn more before you start working with hello, see the following documentation available online:
+
+If you want to run this project locally, you can use the following commands:
+
+```bash
+# Starts the replica, running in the background
+dfx start --background
+
+# Deploys your canisters to the replica and generates your candid interface
+# serves Angular locally with reloading
+npm run start
+```
+- Once the job completes, your application will be available at `http://localhost:4200`.
+
+
+- The project will recompile on both the Angular and motoko side if you make any changes while in development mode
+
+-----
+
+### To learn more about working with dfx, see the following documentation available online:
 
 - [Quick Start](https://sdk.dfinity.org/docs/quickstart/quickstart-intro.html)
 - [SDK Developer Tools](https://sdk.dfinity.org/docs/developers-guide/sdk-guide.html)
@@ -12,33 +37,7 @@ To learn more before you start working with hello, see the following documentati
 - [Motoko Language Quick Reference](https://sdk.dfinity.org/docs/language-guide/language-manual.html)
 - [JavaScript API Reference](https://erxue-5aaaa-aaaab-qaagq-cai.raw.ic0.app)
 
-If you want to start working on your project right away, you might want to try the following commands:
 
-```bash
-cd hello/
-dfx help
-dfx config --help
-```
-
-## Running the project locally
-
-If you want to test your project locally, you can use the following commands:
-
-```bash
-# Starts the replica, running in the background
-dfx start --background
-
-# Deploys your canisters to the replica and generates your candid interface
-dfx deploy
-```
-
-Once the job completes, your application will be available at `http://localhost:8000?canisterId={asset_canister_id}`.
-
-Additionally, if you are making frontend changes, you can start a development server with
-
-```bash
-npm start
-```
 
 Which will start a server at `http://localhost:8080`, proxying API requests to the replica at port 8000.
 
