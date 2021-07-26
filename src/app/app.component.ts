@@ -1,19 +1,18 @@
 import { Component } from "@angular/core";
-import { IcConnectionService } from "projects/ic-connection/src/public-api";
-const ic_hello = require('src/declarations/hello').hello;
+import { IcHelloService } from "./ic-hello.service";
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'hello-angular-motoko';
-  constructor(private connection: IcConnectionService){
-    console.log('ic_hello', ic_hello)
-    this.go();
+  public title = 'hello-angular-motoko';
+  public response = '';
+  constructor(private helloService: IcHelloService){
+    this.getResponse();
   }
-  public async go(){
-    const value  = await ic_hello.greet('Angular');
-    console.log('value', value)
+  public async getResponse(){
+    this.response = await this.helloService.greet('Angular');
   }
 }
