@@ -40,15 +40,17 @@ const asset_entry = path.join(
 );
 
 module.exports = {
- 
+  node: { global: true}, // Fix: "Uncaught ReferenceError: global is not defined", and "Can't resolve 'fs'".
+  
   plugins: [
-    new webpack.DefinePlugin({
-      'STABLE_FEATURE': JSON.stringify(true),
-      'EXPERIMENTAL_FEATURE': JSON.stringify(false)
-    }),
+    // new webpack.DefinePlugin({
+    //   'STABLE_FEATURE': JSON.stringify(true),
+    //   'EXPERIMENTAL_FEATURE': JSON.stringify(false)
+    // }),
     // new HtmlWebpackPlugin({
     //   template: path.join(__dirname, asset_entry),
-    //   cache: false
+    //   cache: false,
+    //   filename: 'other.html'
     // }),
     // new CopyPlugin({
     //   patterns: [
