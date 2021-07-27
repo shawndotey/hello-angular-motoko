@@ -7,6 +7,6 @@ actor {
     return "Hello, " # name # ", this is from [src/hello/main.mo]";
   };
   public query func test() : async Text {
-    return "test from IC main";
+    return "test from IC main!";
   };
 };

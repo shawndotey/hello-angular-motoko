@@ -32,9 +32,8 @@ function initCanisterIds() {
 }
 initCanisterIds();
 
-
 //for @angular-builders/custom-webpack
-//just the Plugins and [devServer] config needed for the IC build process
+//just the Plugins and configs needed for the IC build process
 module.exports = {
   node: { global: true}, // Fix: "Uncaught ReferenceError: global is not defined".
   plugins: [

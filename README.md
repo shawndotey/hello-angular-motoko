@@ -28,7 +28,7 @@ This is an example of locally implementing the Internet Computer's motoko projec
 | ng-start | Start the Angular and the IC server locally with live reloading |
 | ng-serve | Serve and watch both Angular and the IC server for changes |
 | ng-start-dfx | Stop IC server when needed and re-start the IC server |
-
+| print-dfx-www | Print the url to the local IC server Angular application
 ---
 
 &nbsp;
