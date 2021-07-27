@@ -1,31 +1,37 @@
 # hello-angular-motoko
 This is an example of locally implementing the Internet Computer's motoko project along side Angular
 
------------
+---
+&nbsp;
 ## Getting started
 
-- [Install DFX](https://sdk.dfinity.org/docs/quickstart/local-quickstart.html). Please keep in mind the dfx cli currently only runs on Linux and Apple based PCs.
-- [Install Angular](https://angular.io/guide/setup-local)
-- Install npm packages from the project root:
+1. [Install DFX](https://sdk.dfinity.org/docs/quickstart/local-quickstart.html). Please keep in mind the dfx cli currently only runs on Linux and Apple based PCs.
+1. [Install Angular](https://angular.io/guide/setup-local)
+1. Install npm packages from the project root: 
+    `npm install`
 
-    ```bash
-    npm install
-    ```
+    ### Serve Angular and the IC server locally with live reloading:
+        
+        npm run ng-start
+        
+    - Once the job fully starts, your application will be available at `http://localhost:4200`.
+
+    - If you make any changes while in development mode, the project will recompile on both the Angular and IC / Motoko side.
 
 
-### If you want to run this project locally, you can use the following command:
+---
+&nbsp;
 
-```bash
-# Starts the replica, running in the background
-# Deploys your canisters to the replica and generates your candid interface
-# Serves Angular locally with reloading
-npm run start
-```
-Once the job completes, your application will be available at `http://localhost:4200`.
+### package.json Scripts ( npm run [script name] )
+| Name | Description |
+| ----------- | ----------- |
+| ng-start | Start the Angular and the IC server locally with live reloading |
+| ng-serve | Serve and watch both Angular and the IC server for changes |
+| ng-start-dfx | Stop IC server when needed and re-start the IC server |
 
-If you make any changes while in development mode, the project will recompile on both the Angular and motoko side.
+---
 
------
+&nbsp;
 
 ### To learn more about working with dfx, see the following documentation available online:
 
