@@ -13,7 +13,7 @@
     "prebuild": "npm run copy:types",
     "prestart": "npm run copy:types",
     "copy:types": "rsync -avr .dfx/$(echo ${DFX_NETWORK:-'**'})/canisters/** --exclude='assets/' --exclude='idl/' --exclude='*.wasm' --delete src/declarations",
-    "ng-start": "npm run ng-start-dfx && npm run ng-serve",
+    "ng-start": "npm run ng-start-dfx && dfx canister create hello && npm run ng-serve",
     "ng-serve": "concurrently -k \"npm run ng-watch-motoko\" \"ng serve\"",
     "ng-start-dfx": "npm run ng-stop-dfx && dfx start --background",
     "ng-stop-dfx": "dfx stop",
