@@ -10,13 +10,17 @@ This is an example of locally implementing the Internet Computer's motoko projec
 1. Install npm packages from the project root: 
     `npm install`
 
-    ### Serve Angular and the IC server locally with live reloading:
+    ### Serve Angular and the IC backend server locally with live reloading:
         
         npm run ng-start
         
     - Once the job fully starts, your application will be available at `http://localhost:4200`.
 
     - If you make any changes while in development mode, the project will recompile on both the Angular and IC / Motoko side.
+
+    ### Build and Serve the Angular application on the local IC server:
+
+        npm run build-dfx-www
 
 
 ---
