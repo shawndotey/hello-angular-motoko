@@ -1,6 +1,29 @@
+<!-- 
 <div class='container'>
   <div class='content'>
     <h1>Hello Motoko, meet Angular!</h1>
     <h1>{{response}}</h1>
   </div>
 </div>
+-->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Hello Motoko, meet Angular!</title>
+    <base href="/">
+</head>
+<body>
+	<div class="logo-container">
+    	<img src="../assets/logo.png" alt="DFINITY Logo" />
+    	<img src="../assets/angular.png" alt="Angular Logo" />
+	</div>
+    <section>
+        <label for="name">Enter your name: &nbsp;</label>
+        <input id="name" alt="Name" type="text" />
+        <button id="clickMeBtn" (click)="getResponse()">Click Me!</button>
+    </section>
+    <section id="greeting"></section>
+</body>
+</html>
