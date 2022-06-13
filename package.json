@@ -14,7 +14,7 @@
     "test": "ng test",
     "prebuild": "npm run copy:types",
     "start": "npm run reset-dfx && concurrently -k \"npm run watch-motoko\" \"ng serve\"",
-    "reset-dfx": "dfx stop && dfx start --background",
+    "reset-dfx": "dfx stop && dfx start --background --clean",
     "build-motoko": "dfx deploy hello",
     "watch-motoko": "nodemon --watch src --ext mo -x \"npm run build-motoko\"",
     "prestart": "npm run copy:types",
