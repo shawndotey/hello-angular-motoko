@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "author": {
     "name": "Shawn Dotey",
-    "email": "shawndotey@protonmail.com",
+    "email": "insight431@protonmail.com",
     "url": "https://github.com/shawndotey/hello-angular-motoko"
   },
   "scripts": {
@@ -20,8 +20,9 @@
     "prestart": "",
     "dfx-resolve-conflicts":"find src/declarations -type f -name '**.ts' -delete",
     "dfx-init": "dfx stop && dfx start --background --clean && dfx canister create --all && dfx generate && npm run dfx-resolve-conflicts",
-    "copy:types": "rsync -avr .dfx/$(echo ${DFX_NETWORK:-'**'})/canisters/** --exclude='assets/' --exclude='idl/' --exclude='*.wasm' --delete src/declarations"
-  },
+    "dfx-deploy": "export NODE_ENV=production && ng build --configuration production && dfx deploy --network ic --no-wallet",
+    "copy:types": "rsync -avr .dfx/$(echo ${DFX_NETWORK:-'**'})/canisters/** --exclude='assets/' --exclude='idl/' --exclude='*.wasm' --exclude='*.most' --delete src/declarations"
+ },
   "private": true,
   "dependencies": {
     "@angular/animations": "~12.1.0",

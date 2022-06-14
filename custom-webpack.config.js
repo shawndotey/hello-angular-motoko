@@ -2,7 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 
 let localCanisters, prodCanisters, canisters;
-
+console.log("--- Start Custom Webpack");
 function initCanisterIds() {
   
   try {
@@ -20,6 +20,8 @@ function initCanisterIds() {
   const network =
     process.env.DFX_NETWORK ||
     (process.env.NODE_ENV === "production" ? "ic" : "local");
+
+  console.log("network =",network );
 
   canisters = network === "local" ? localCanisters : prodCanisters;
 
