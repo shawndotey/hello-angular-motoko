@@ -13,6 +13,10 @@ export class AppComponent {
     this.getResponse();
   }
   public async getResponse(){
+    const start = Date.now();
+	  console.log("start request")
     this.response = await this.helloService.greet('Angular');
+    const duration = Date.now() - start;
+    console.log("request time", duration)
   }
 }
