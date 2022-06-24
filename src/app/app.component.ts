@@ -1,22 +1,23 @@
 import { Component } from "@angular/core";
-import { IcHelloService } from "./ic-hello.service";
+import { MotokoService } from "./motoko.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  standalone: true,
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   public title = 'hello-angular-motoko';
   public response = '';
-  constructor(private helloService: IcHelloService){
-    this.getResponse();
+  public duration: number = 0;
+  constructor(private motokoService: MotokoService){
   }
-  public async getResponse(){
+  public async getResponse(username:string = 'Angular'){
     const start = Date.now();
 	  console.log("start request")
-    this.response = await this.helloService.greet('Angular');
-    const duration = Date.now() - start;
-    console.log("request time", duration)
+    this.response = await this.motokoService.greet(username);
+    this.duration = Date.now() - start;
+    console.log("request time", this.duration)
   }
 }

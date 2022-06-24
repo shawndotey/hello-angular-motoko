@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-const ic_hello = require('src/declarations/hello').hello;
+const ic_motoko = require('src/declarations/motoko').motoko;
 
 @Injectable({
   providedIn: 'root'
 })
-export class IcHelloService {
+export class MotokoService {
 
   constructor() { }
   public async greet(name:string){
-    return await ic_hello.greet(name);
+    return await ic_motoko.greet(name);
   }
   public async test(){
-    return await ic_hello.test();
+    return await ic_motoko.test();
   }
 }

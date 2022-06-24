@@ -40,7 +40,7 @@ module.exports = {
   plugins: [
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
-      HELLO_CANISTER_ID: canisters["hello"]
+      MOTOKO_CANISTER_ID: canisters["motoko"]
     }),
     new webpack.ProvidePlugin({
       Buffer: [require.resolve("buffer/"), "Buffer"],
@@ -59,7 +59,7 @@ module.exports = {
       },
     },
     hot: true,
-    //contentBase: path.resolve(__dirname, "./src/hello_assets"),
+    //contentBase: path.resolve(__dirname, "./src/motoko_assets"),
     //watchContentBase: true
   },
 };
