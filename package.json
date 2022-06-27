@@ -21,6 +21,7 @@
     "dfx-resolve-conflicts":"find src/declarations -type f -name '**.ts' -delete",
     "dfx-init": "dfx stop && dfx start --background --clean && dfx canister create --all && dfx generate && npm run dfx-resolve-conflicts",
     "copy:types": "rsync -avr .dfx/$(echo ${DFX_NETWORK:-'**'})/canisters/** --exclude='assets/' --exclude='idl/' --exclude='*.wasm' --delete src/declarations"
+==== BASE ====
   },
   "private": true,
   "dependencies": {

@@ -1,6 +1,8 @@
 const path = require("path");
 const webpack = require("webpack");
 
+const isDevelopment = process.env.NODE_ENV !== "production";
+
 let localCanisters, prodCanisters, canisters;
 
 function initCanisterIds() {
@@ -30,9 +32,8 @@ function initCanisterIds() {
 }
 initCanisterIds();
 
-const isDevelopment = process.env.NODE_ENV !== "production";
-
-
+//for @angular-builders/custom-webpack
+//just the Plugins and configs needed for the IC build process
 module.exports = {
   node: { global: true}, // Fix: "Uncaught ReferenceError: global is not defined".
   plugins: [
