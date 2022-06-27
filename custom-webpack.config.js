@@ -2,7 +2,9 @@ const path = require("path");
 const webpack = require("webpack");
 
 let localCanisters, prodCanisters, canisters;
+
 console.log("--- starting custom-webpack.config.js ---");
+
 function initCanisterIds() {
   
   try {
