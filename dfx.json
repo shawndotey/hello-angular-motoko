@@ -1,12 +1,12 @@
 {
   "canisters": {
-    "hello": {
-      "main": "src/hello/main.mo",
+    "motoko": {
+      "main": "src/motoko/main.mo",
       "type": "motoko"
     },
     "www": {
       "dependencies": [
-        "hello"
+        "motoko"
       ],
       "frontend": {
         "entrypoint": "dist/www/index.html"

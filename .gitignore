@@ -40,7 +40,7 @@ yarn-error.log
 testem.log
 /typings
 /.dfx
-/.angular/*
+/.angular
 # System Files
 .DS_Store
 Thumbs.db

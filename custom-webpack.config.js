@@ -5,6 +5,8 @@ const isDevelopment = process.env.NODE_ENV !== "production";
 
 let localCanisters, prodCanisters, canisters;
 
+console.log("--- starting custom-webpack.config.js ---");
+
 function initCanisterIds() {
   
   try {
@@ -23,6 +25,8 @@ function initCanisterIds() {
     process.env.DFX_NETWORK ||
     (process.env.NODE_ENV === "production" ? "ic" : "local");
 
+  console.log("network = ",network );
+
   canisters = network === "local" ? localCanisters : prodCanisters;
 
   for (const canister in canisters) {
@@ -39,7 +43,7 @@ module.exports = {
   plugins: [
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
-      HELLO_CANISTER_ID: canisters["hello"]
+      MOTOKO_CANISTER_ID: canisters["motoko"]
     }),
     new webpack.ProvidePlugin({
       Buffer: [require.resolve("buffer/"), "Buffer"],
@@ -57,8 +61,6 @@ module.exports = {
         },
       },
     },
-    hot: true,
-    //contentBase: path.resolve(__dirname, "./src/hello_assets"),
-    //watchContentBase: true
+    hot: true
   },
 };
