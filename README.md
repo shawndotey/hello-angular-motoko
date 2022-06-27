@@ -1,5 +1,5 @@
 # hello-angular-motoko
-This is an example of locally implementing and deploying the Internet Computer's motoko project along side Angular.
+This is an example of locally implementing and deploying the Internet Computer's motoko project (0.10.1) along side Angular 14.
 
 -----------
 ## Getting started
