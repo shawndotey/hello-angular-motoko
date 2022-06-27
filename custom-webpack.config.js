@@ -2,7 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 
 let localCanisters, prodCanisters, canisters;
-console.log("--- Starting custom-webpack.config.js");
+console.log("--- starting custom-webpack.config.js ---");
 function initCanisterIds() {
   
   try {
@@ -58,8 +58,6 @@ module.exports = {
         },
       },
     },
-    hot: true,
-    //contentBase: path.resolve(__dirname, "./src/motoko_assets"),
-    //watchContentBase: true
+    hot: true
   },
 };

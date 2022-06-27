@@ -1,6 +1,5 @@
 import { Component } from "@angular/core";
 import { MotokoService } from "./motoko.service";
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,10 +8,12 @@ import { MotokoService } from "./motoko.service";
 })
 export class AppComponent {
   public title = 'hello-angular-motoko';
-  public response = '';
+  public response = 'Nothing yet';
   public duration: number = 0;
+  
   constructor(private motokoService: MotokoService){
   }
+
   public async getResponse(username:string = 'Angular'){
     const start = Date.now();
 	  console.log("start request")
