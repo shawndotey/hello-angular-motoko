@@ -1,16 +1,53 @@
 # hello-angular-motoko
-This is an example of locally implementing and deploying the Internet Computer's motoko project (0.10.1) along side Angular 14.
+This is an example of a Motoko project with an Angular 14 frontend.
+
+<a name="prerequesites"></a> 
+## Prerequesites
+- [Install DFX](https://internetcomputer.org/docs/current/developer-docs/quickstart/local-quickstart).
+- [Install Angular Globally](https://angular.io/guide/setup-local)
+- Install npm packages from the project root:
+    ```
+    npm install
+    ```
+- A https://nns.ic0.app wallet, logged in.
+- ~5 US dollars worth of ICP transfered to your wallet address.
+- As taken from [this guide](https://kyle-peacock.com/blog/dfinity/your-first-canister): 
+ 
+    1. log in to your https://nns.ic0.app, select your account and verify your balance.
+    2. Select the [CANISTERS](https://nns.ic0.app/#/canisters) view on the left side navigtion menu. 
+    3. Click the blue Create or Link Canister button at the bottom of your page to open up the dialog.
+    4. Click the Create New Canister button. Then, select the ICP account that you want to use to fund your new canister.
+    5. You'll then be prompted to enter an amount. For now, put at least 2T Cycles.
+    6. Click Review Cycles Purchase and Confirm.
+        * You will need to create 2 unique Canisters for this project. Repeat steps 3-6 to create a second canister. 
+    7. You'll need to get the principal from your computer by running from the project root
+        ```
+        dfx identity get-principal
+        ```
+    8. Copy that principal id and head back to your CANISTERS view with your newly created Canisters. Click the blue Change Controllers button to open up the controller management UI.
+        * Repeat for the second Canister.
+    9. Enter your principal in the empty second input, and then click Perform Controller Change. This step authorizes your dfx on your computer to deploy to your newly created Canister. 
+        * Repeat for the second Canister as well.
+    10. Modify the `canister_id.json` file in the project root. Update both "motoko" and "www" "ic" properties.
+	 
+        ```bash
+        # canister_id.json
+        {
+        "motoko": {
+            # replace this with your unique cansiter from the above guide
+            "ic":"your-unique-canister-goes-here"
+        },
+        "www": {
+            # replace this with a second unique cansiter from the above guide
+            "ic": "another-unique-canister-goes-here"
+        }
+    
+        ```
+    
 
 -----------
 ## Getting started
 
-- [Install DFX](https://sdk.dfinity.org/docs/quickstart/local-quickstart.html). Please keep in mind the dfx cli currently only runs on Linux and Apple based PCs.
-- [Install Angular Globally](https://angular.io/guide/setup-local)
-- Install npm packages from the project root:
-
-    ```
-    npm install
-    ```
 - Initalize the project declarations and dfx processes:
     ```Bash
     # Deploys your canisters to the replica and generates your candid interface
@@ -29,32 +66,20 @@ This is an example of locally implementing and deploying the Internet Computer's
     ```
     Once the job completes, your application will be available at `http://localhost:4200`.
 
-    If you make any changes while in development mode, the project will recompile on both the Angular and motoko side.
+    If you make any changes while in development mode, the project will recompile on both the Angular and Motoko side.
 
 -----
 
 ## Deploying the project to the IC:
-From the project root:
+- From the project root, deploy the project to your canisters provided in the [Prerequesites](#prerequesites).
 
- 1. [Follow this guide except for the following](https://kyle-peacock.com/blog/dfinity/your-first-canister) - The `canister_id.json` file you need to modify is in the project root. Update both "motoko" and "www" "ic" properties. Please do not attempt to deploy as provided in the last part of the guide. Instead, run the command in step 2.
-	 
     ```bash
-    # canister_id.json
-    {
-    "motoko": {
-        # replace this with your unique cansiter from the above guide
-        "ic":"65yca-4yaaa-aaaak-qaqcq-cai"
-    },
-    "www": {
-         # replace this with a second unique cansiter from the above guide
-        "ic": "zcp5t-tqaaa-aaaaj-aijea-cai"
-    }
-   
+    npm run deploy:dfx
     ```
-	
- 2. Execute `npm run deploy:dfx` to deploy the project to your IC canisters.
 
-CLI commands run from the project root
+-----
+
+## CLI commands run from the project root
 
 |         `npm run`       |Description                         
 |----------------|-------------------------------
@@ -66,13 +91,13 @@ CLI commands run from the project root
 |`generate:motoko`| Generate canister type declarations for motoko supported programming languages. This will generate the `src/declarations` folder and remove conflicts. These generated js files allow you to consume the motoko language service on the front end. i.e `const  ic_service = require('src/declarations/motoko').motoko;`
 
 ## Notes
-- The npm `build`, `prebuild` and `prestart` commands are used by the IC processes. Using them may have unintended side effects with other build processes.
+- The npm `build`, `prebuild` and `prestart` commands are used by the IC processes. Using them elsewhere may have unintended side effects with other build processes.
 - Currently, the Typescript generated by DFX has trailing commas, which produces a conflict with Angular's default build configurations. Fixing this is beyound the scope of this example.
 - This example is intended to help those already familar with Angular to get started with the IC. This example is designed to be as straight forward as possible but it is not intended as a tool for learning Angular.
 
 -----
 
-### To learn more about working with dfx, see the following documentation available online:
+### To learn more about working with the Internet Computer, see the following documentation available online:
 
 - [Quick Start](https://sdk.dfinity.org/docs/quickstart/quickstart-intro.html)
 - [SDK Developer Tools](https://sdk.dfinity.org/docs/developers-guide/sdk-guide.html)

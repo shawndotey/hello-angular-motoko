@@ -12,6 +12,7 @@ export class AppComponent {
   public duration: number = 0;
   
   constructor(private motokoService: MotokoService){
+    console.log("break here")
   }
 
   public async getResponse(username:string = 'Angular'){

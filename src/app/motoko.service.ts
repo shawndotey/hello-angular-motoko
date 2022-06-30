@@ -4,13 +4,14 @@ const ic_motoko = require('src/declarations/motoko').motoko;
 @Injectable({
   providedIn: 'root'
 })
+
 export class MotokoService {
 
-  constructor() { }
-  public async greet(name:string){
+  constructor() {}
+  public async greet(name:string): Promise<any>{
     return await ic_motoko.greet(name);
   }
-  public async test(){
+  public async test(): Promise<any>{
     return await ic_motoko.test();
   }
 }
