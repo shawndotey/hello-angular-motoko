@@ -35,4 +35,4 @@ export const canisterId = process.env.MOTOKO_CANISTER_ID;
  * A ready-to-use agent for the motoko canister
  * @type {import("@dfinity/agent").ActorSubclass<import("./motoko.did.js")._SERVICE>}
  */
-export const motoko = createActor(canisterId);
+ export const motoko = createActor(canisterId);
