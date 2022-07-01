@@ -8,8 +8,24 @@
             "type": "pwa-chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080",
+            "url": "http://localhost:4200",
             "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Test",
+            "url": "http://localhost:9876/debug.html",
+            "webRoot": "${workspaceFolder}",
+            "sourceMaps": true,
+            "sourceMapPathOverrides": {
+                "webpack:/*": "${webRoot}/*",
+                "/./*": "${webRoot}/*",
+                "/src/*": "${webRoot}/*",
+                "./*": "${webRoot}/*",
+                "_karma_webpack_/*": "${webRoot}/*",
+                "/./~/*": "${workspaceFolder}/node_modules/*"
+            }
         }
     ]
 }
