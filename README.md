@@ -53,16 +53,20 @@ This is an example of a Motoko project with an Angular 14 frontend.
     # Deploys your canisters to the replica and generates your candid interface
     npm run init:dfx
     ```
-- Serve the project locally:
+
+-----
+
+## Serving the Project Locally
+- You can use the following command:
 
     ```bash
     # Starts the replica, running in the background
     # Serves Angular and dfx canisters locally with hot reloading
     npm run start
     ```
-Once the job completes, your application will be available at `http://localhost:4200`.
+    Once the job completes, your application will be available at `http://localhost:4200`.
 
-If you make any changes while in development mode, the project will recompile on both the Angular and Motoko side.
+    If you make any changes while in development mode, the project will recompile on both the Angular and Motoko side.
 
 -----
 
