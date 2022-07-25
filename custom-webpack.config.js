@@ -9,8 +9,6 @@ let localCanisters, prodCanisters, canisters, canisterHost;
 
 console.log("--- starting custom-webpack.config.js ---");
 
-console.log("--- starting custom-webpack.config.js ---");
-
 function initCanisterIds() {
   
   try {
